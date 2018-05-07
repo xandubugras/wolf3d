@@ -1,0 +1,38 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    architecture                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: adubugra <adubugra@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/05/05 18:16:47 by adubugra          #+#    #+#              #
+#    Updated: 2018/05/05 20:39:20 by adubugra         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+//initialize player, map, plane and direction to somewhere free
+//create loop to iterate the camera horizontally
+//in the loop, the ray goes through all the squares in the map that are in line with the camera
+//in order to find which ones are in line, uses a line algorithm
+//line algorith takes where you are in, finds the next squares and goes through them with deltadist
+//once it finds an obstacle it  gets the height and draws it from top based on the distance from the player
+//since it will be in front of other objects in that ray, no need to keep going
+
+checks if the map is closed
+
+set_player(initial_x, initial_y); returns player pointer
+whenever there is event...
+update player info according to which event
+Render(player, grid)
+	create ray pointer
+	function calls raytracing function inside while
+	raytracing
+		setray(int x, s_player *player); returns ray pointer
+			set_step_side_dist(s_ray *ray); void
+		find_obstacles(s_ray *ray);
+		set_height(mapx, mapy, player, ray);
+		set_color(grid); 
+		draw_line();
+	
+	
+

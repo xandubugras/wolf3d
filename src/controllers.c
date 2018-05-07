@@ -6,7 +6,7 @@
 /*   By: adubugra <adubugra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 11:57:16 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/06 17:12:27 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/06 18:21:11 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,22 @@ int		on_key(int key, t_pointers *pt)
 		rotate(pt, -1);
 	if (key == LEFT)
 		rotate(pt, 1);
+	return (1);
+}
+
+int		on_click(int button, int x, int y, t_pointers *pt)
+{
+	return (0);
+}
+
+int		exit_handler(t_pointers *pt)
+{
+	mlx_destroy_window(pt->mlx_ptr, pt->win_ptr);
+	pt->mlx_ptr = 0;
+	free(pt->player);
+	free_grid(pt->grid);
+	free(pt);
+	exit(0);
 	return (1);
 }
 

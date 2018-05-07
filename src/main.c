@@ -6,7 +6,7 @@
 /*   By: adubugra <adubugra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 18:11:18 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/06 17:10:46 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/06 18:18:52 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int		main(int argc, char **argv)
 	ptrs = create_pointers(grid, player);
 	render(player, grid, ptrs);
 	mlx_key_hook(ptrs->win_ptr, on_key, ptrs);
+	mlx_mouse_hook(ptrs->win_ptr, on_click, ptrs);
+	mlx_hook(ptrs->win_ptr, 17, 0, exit_handler, ptrs);
 	mlx_loop(ptrs->mlx_ptr);
 	free(player);
 	free(ptrs);

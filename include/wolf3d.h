@@ -6,7 +6,7 @@
 /*   By: adubugra <adubugra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 16:29:38 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/06 17:27:04 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/06 18:20:34 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "../libft/libft.h"
 # include "../miniLibX/mlx.h"
 # include <math.h>
+# include <stdio.h>
 # define FOCAL_DISTANCE 10
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -75,6 +76,8 @@ void			free_grid(t_grid **grid);
 int				on_click(int button, int x, int y, t_pointers *param);
 
 int				on_key(int key, t_pointers *param);
+
+int				exit_handler(t_pointers *pt);
 
 void			rotate(t_pointers *pt, int order);
 

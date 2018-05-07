@@ -6,7 +6,7 @@
 /*   By: adubugra <adubugra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 16:55:19 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/06 17:24:12 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/06 18:08:22 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,9 @@ void	set_color(t_grid *grid, t_ray *ray)
 		color = 0xfc0fc0;
 	if (ray->side == 1)
 		color = ft_return_mod(color - 55);
+	if (ray->step_x == -1)
+		color = ft_return_mod(color - 30);
+	if (ray->step_y == -1)
+		color = ft_return_mod(color - 60);
 	grid->color = color;
 }

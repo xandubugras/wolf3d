@@ -6,7 +6,7 @@
 /*   By: adubugra <adubugra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 16:29:38 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/06 17:18:17 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/06 17:27:04 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,6 @@ typedef struct	s_ray
 	int		step_y;
 	int		side;
 }				t_ray;
-	
-typedef struct	s_drawer
-{
-	int		x1;
-	int		x2;
-	int		y1;
-	int		y2;
-	int		color;
-	t_pointers	*ptr;
-}				t_drawer;
 
 void			free_grid(t_grid **grid);
 /*
@@ -121,15 +111,18 @@ t_player		*set_player(int x, int y);
 
 t_ray			*set_ray(t_ray *ray, t_player *player, int screen_x);
 
-t_ray			*set_step_side_dist(t_ray *ray, t_player *player, int map_x, int map_y);
+t_ray			*set_step_side_dist(t_ray *ray, t_player *player,
+				int map_x, int map_y);
 /*
 **---------------------RENDER------------------
 */
 void			render(t_player *player, t_grid **grid, t_pointers *p);
 
-int				find_obstacles(t_ray *ray, int *map_x, int *map_y, t_grid **grid);
+int				find_obstacles(t_ray *ray, int *map_x, int *map_y,
+				t_grid **grid);
 
-int				*set_height(t_player *player, int map[2], t_grid **grid, t_ray *ray);
+int				*set_height(t_player *player, int map[2],
+				t_grid **grid, t_ray *ray);
 
 void			set_color(t_grid *grid, t_ray *ray);
 

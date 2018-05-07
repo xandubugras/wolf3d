@@ -6,7 +6,7 @@
 /*   By: adubugra <adubugra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 16:55:19 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/06 17:19:51 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/06 17:24:12 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int		find_obstacles(t_ray *ray, int *map_x, int *map_y, t_grid **grid)
 			*map_y += ray->step_y;
 			ray->side = 1;
 		}
-	if (grid[*map_x][*map_y].z > 0)
-		break;
+		if (grid[*map_x][*map_y].z > 0)
+			break ;
 	}
 	return (ray->side);
 }
@@ -70,20 +70,21 @@ int		*set_height(t_player *player, int map[2], t_grid **grid, t_ray *ray)
 
 	height = malloc(sizeof(int) * 2);
 	if (ray->side == 0)
-		perp_wall_dist = (map[0] - player->x + (1 - ray->step_x) / 2) / ray->ray_x;
+		perp_wall_dist = (map[0] - player->x + (1 - ray->step_x) / 2) /
+		ray->ray_x;
 	else
-		perp_wall_dist = (map[1] - player->y + (1 - ray->step_y) / 2) / ray->ray_y;
+		perp_wall_dist = (map[1] - player->y + (1 - ray->step_y) / 2) /
+		ray->ray_y;
 	line_height = (int)(WIN_HEIGHT / perp_wall_dist);
 	height[0] = -line_height / 2 + WIN_HEIGHT / 2;
-	if(height[0] < 0)
+	if (height[0] < 0)
 		height[0] = 0;
 	height[1] = line_height / 2 + WIN_HEIGHT / 2;
-	if(height[1] >= WIN_HEIGHT)
+	if (height[1] >= WIN_HEIGHT)
 		height[1] = WIN_HEIGHT - 1;
 	grid[map[0]][map[1]].y = height[0];
 	return (height);
 }
-
 
 void	set_color(t_grid *grid, t_ray *ray)
 {
